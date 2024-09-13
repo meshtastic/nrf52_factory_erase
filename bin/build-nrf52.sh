@@ -13,12 +13,12 @@ rm -r $OUTDIR/* || true
 platformio pkg update -e $1
 
 echo "Building for $1 with $PLATFORMIO_BUILD_FLAGS"
-rm -f .pio/build/$1/nrf52_factory_erase.*
+rm -f .pio/build/$1/firmware.*
 
 # The shell vars the build tool expects to find
 export APP_VERSION=$VERSION
 
-basename=nrf52_factory_erase-$1-$VERSION
+basename=lr1110_fw_updater-$1-$VERSION
 
 pio run --environment $1 # -v
 SRCELF=.pio/build/$1/firmware.elf
